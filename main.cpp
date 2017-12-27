@@ -20,21 +20,25 @@ int main()
         char choice;
         std::cin >> choice;
         choice = tolower(choice);
-        graph newgraph;
+        graph SYSUEastCampusGraph;
         std::ifstream in("data");
-        newgraph.setData(in);
+        SYSUEastCampusGraph.setData(in);
         switch (choice)
         {
             case 'm':
-                newgraph.getMap();
+                SYSUEastCampusGraph.getMap();
                 break;
             case 'n':
-                newgraph.getNode();
+                SYSUEastCampusGraph.getNode();
                 break;
             case 's':
                 std::string s1, s2;
                 std::cin >> s1 >> s2;
-                if (newgraph.Dijkstra(s1, s2));
+                if (SYSUEastCampusGraph.Dijkstra(s1, s2))
+                {
+                    std::cout << "依据给出的信息，给出最短路径如下：" << std::endl;
+                    SYSUEastCampusGraph.printRoute();
+                }
                 else
                 {
                     std::cout << "依据给出的信息，不存在可能的最短路径！" << std::endl;
