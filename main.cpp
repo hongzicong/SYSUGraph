@@ -9,11 +9,8 @@ int main()
     std::string s1, s2;
     graph SYSUEastCampusGraph;
     std::ifstream in_1("C:\\Users\\DELL-PC\\CLionProjects\\SYSUGraph\\NodeData.txt");
-    //std::ifstream in_2("C:\\Users\\DELL-PC\\CLionProjects\\SYSUGraph\\MapData.txt");
-    std::string temp;
-    in_1>>temp;
-    std::cout<<temp<<std::endl;
-    //SYSUEastCampusGraph.setData(in_1,in_2);
+    std::ifstream in_2("C:\\Users\\DELL-PC\\CLionProjects\\SYSUGraph\\MapData.txt");
+    SYSUEastCampusGraph.setData(in_1,in_2);
 
     while (!quit)
     {
@@ -22,7 +19,8 @@ int main()
         std::cout << "=================================================" << std::endl;
         std::cout << "= m. 给出地图\t\t\t\t\t=" << std::endl;
         std::cout << "= n. 给出每个节点信息\t\t\t\t=" << std::endl;
-        std::cout << "= s. 两点间最短路径\t\t\t\t=" << std::endl;
+        std::cout << "= s. 两点间最短路径（走路）\t\t\t=" << std::endl;
+        std::cout << "= d. 两点间最短路径（开车）\t\t\t=" << std::endl;
         std::cout << "= q. 退出此程序\t\t\t\t\t=" << std::endl;
         std::cout << "=================================================" << std::endl;
 
@@ -43,6 +41,19 @@ int main()
                 {
                     std::cout << "依据给出的信息，给出最短路径如下：" << std::endl;
                     SYSUEastCampusGraph.printRoute();
+                }
+                else
+                {
+                    std::cout << "依据给出的信息，不存在可能的最短路径！" << std::endl;
+                }
+                break;
+            case 'd':
+                std::cout<<"请写出两个地点之间的名称（空格间隔）：";
+                std::cin >> s1 >> s2;
+                if (SYSUEastCampusGraph.Dijkstra_car(s1, s2))
+                {
+                    std::cout << "依据给出的信息，给出最短路径如下：" << std::endl;
+                    SYSUEastCampusGraph.printCarRoute();
                 }
                 else
                 {
