@@ -66,12 +66,12 @@ void graph::setData(std::ifstream &file) {
     int dist;
     std::string place;
     for (int i = 0; i < count; ++i) {
-        std::cin >> a >> b >> dist;
+        file >> a >> b >> dist;
         map[a][b] = dist;
         map[b][a] = dist;
     }
     for (int i = 0; i < num; ++i) {
-        std::cin >> place;
+        file >> place;
         detail[i] = place;
     }
 }
