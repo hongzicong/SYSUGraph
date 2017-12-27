@@ -16,7 +16,6 @@
 class graph {
 
 private:
-    int num;
     int distance[MAX_VERTEX];
     bool isVisit[MAX_VERTEX];
     std::string vertex[MAX_VERTEX];
@@ -25,12 +24,13 @@ private:
     std::queue<int> route;
     void swap(int &a,int &b);
 public:
+    int num;
     graph();
     bool Dijkstra(std::string &a,std::string &b);
     void clearDistance();
     void clearVisit();
     int findMinDistance();
-    void setData(std::ifstream &file);
+    void setData(std::ifstream &file_1,std::ifstream &file_2);
     int getID(std::string &name);
     void getNode();
     void getMap();

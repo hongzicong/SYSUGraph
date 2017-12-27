@@ -4,25 +4,30 @@
 
 int main()
 {
-    // std::cout << "Hello, World!" << std::endl;
     bool quit = false;
+    char choice;
+    std::string s1, s2;
+    graph SYSUEastCampusGraph;
+    std::ifstream in_1("C:\\Users\\DELL-PC\\CLionProjects\\SYSUGraph\\NodeData.txt");
+    //std::ifstream in_2("C:\\Users\\DELL-PC\\CLionProjects\\SYSUGraph\\MapData.txt");
+    std::string temp;
+    in_1>>temp;
+    std::cout<<temp<<std::endl;
+    //SYSUEastCampusGraph.setData(in_1,in_2);
+
     while (!quit)
     {
         std::cout << "=================================================" << std::endl;
-        std::cout << "=\t\t\t\t\tè¯·é€‰æ‹©æ“ä½œ\t\t\t\t\t=" << std::endl;
+        std::cout << "=\t\tÇëÑ¡Ôñ²Ù×÷\t\t\t=" << std::endl;
         std::cout << "=================================================" << std::endl;
-        std::cout << "= m. ç»™å‡ºåœ°å›¾\t\t\t\t\t\t\t\t\t\t=" << std::endl;
-        std::cout << "= n. ç»™å‡ºæ¯ä¸ªèŠ‚ç‚¹ä¿¡æ¯\t\t\t\t\t\t\t\t=" << std::endl;
-        std::cout << "= s. ä¸¤ç‚¹é—´æœ€çŸ­è·¯å¾„\t\t\t\t\t\t\t\t=" << std::endl;
-        std::cout << "= q. é€€å‡ºæ­¤ç¨‹åº\t\t\t\t\t\t\t\t\t=" << std::endl;
+        std::cout << "= m. ¸ø³öµØÍ¼\t\t\t\t\t=" << std::endl;
+        std::cout << "= n. ¸ø³öÃ¿¸ö½ÚµãÐÅÏ¢\t\t\t\t=" << std::endl;
+        std::cout << "= s. Á½µã¼ä×î¶ÌÂ·¾¶\t\t\t\t=" << std::endl;
+        std::cout << "= q. ÍË³ö´Ë³ÌÐò\t\t\t\t\t=" << std::endl;
         std::cout << "=================================================" << std::endl;
 
-        char choice;
         std::cin >> choice;
         choice = tolower(choice);
-        graph SYSUEastCampusGraph;
-        std::ifstream in("data");
-        SYSUEastCampusGraph.setData(in);
         switch (choice)
         {
             case 'm':
@@ -32,16 +37,16 @@ int main()
                 SYSUEastCampusGraph.getNode();
                 break;
             case 's':
-                std::string s1, s2;
+                std::cout<<"ÇëÐ´³öÁ½¸öµØµãÖ®¼äµÄÃû³Æ£¨¿Õ¸ñ¼ä¸ô£©£º";
                 std::cin >> s1 >> s2;
                 if (SYSUEastCampusGraph.Dijkstra(s1, s2))
                 {
-                    std::cout << "ä¾æ®ç»™å‡ºçš„ä¿¡æ¯ï¼Œç»™å‡ºæœ€çŸ­è·¯å¾„å¦‚ä¸‹ï¼š" << std::endl;
+                    std::cout << "ÒÀ¾Ý¸ø³öµÄÐÅÏ¢£¬¸ø³ö×î¶ÌÂ·¾¶ÈçÏÂ£º" << std::endl;
                     SYSUEastCampusGraph.printRoute();
                 }
                 else
                 {
-                    std::cout << "ä¾æ®ç»™å‡ºçš„ä¿¡æ¯ï¼Œä¸å­˜åœ¨å¯èƒ½çš„æœ€çŸ­è·¯å¾„ï¼" << std::endl;
+                    std::cout << "ÒÀ¾Ý¸ø³öµÄÐÅÏ¢£¬²»´æÔÚ¿ÉÄÜµÄ×î¶ÌÂ·¾¶£¡" << std::endl;
                 }
                 break;
             case 'q':
@@ -51,7 +56,8 @@ int main()
                 std::cout << "Invalid Command!" << std::endl;
                 break;
         }
-        std::system("clear");
+        std::system( "PAUSE ");
+        std::system("cls");
     }
     return 0;
 }

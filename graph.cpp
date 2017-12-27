@@ -58,20 +58,25 @@ int graph::findMinDistance() {
     return index;
 }
 
-void graph::setData(std::ifstream &file) {
+void graph::setData(std::ifstream &file_1,std::ifstream &file_2) {
     int count;
-    file >> num;
-    file >> count;
+    int id;
+    file_1 >> num;
+    file_2 >> count;
+    std::cout<<count<<std::endl;
     int a, b;
     int dist;
     std::string place;
     for (int i = 0; i < count; ++i) {
-        file >> a >> b >> dist;
+        file_2 >> a >> b >> dist;
         map[a][b] = dist;
         map[b][a] = dist;
     }
     for (int i = 0; i < num; ++i) {
-        file >> place;
+        file_1>>id;
+        file_1 >> place;
+        vertex[i]=place;
+        file_1>>place;
         detail[i] = place;
     }
 }
