@@ -6,6 +6,7 @@
 #define UNTITLED_GRAPH_H
 
 #include <iostream>
+#include <fstream>
 #include <climits>
 #include <string>
 
@@ -18,6 +19,7 @@ private:
     int distance[MAX_VERTEX];
     bool isVisit[MAX_VERTEX];
     std::string vertex[MAX_VERTEX];
+    std::string detail[MAX_VERTEX];
     int map[MAX_VERTEX][MAX_VERTEX];
 public:
     graph();

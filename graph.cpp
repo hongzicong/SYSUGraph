@@ -55,6 +55,19 @@ int graph::findMinDistance(){
 }
 
 void graph::setData(std::ifstream &file){
+    file>>num;
+    int a,b;
+    int dist;
+    std::string place;
+    for(int i=0;i<num;++i){
+        std::cin>>a>>b>>dist;
+        map[a][b]=dist;
+        map[b][a]=dist;
+    }
+    for(int i=0;i<num;++i){
+        std::cin>>place;
+        detail[i]=place;
+    }
 }
 
 void graph::clearDistance() {
