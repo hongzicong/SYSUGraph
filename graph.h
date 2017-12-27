@@ -21,11 +21,12 @@ private:
     int map[MAX_VERTEX][MAX_VERTEX];
 public:
     graph();
-    bool Dijkstra(int a,int b);
+    bool Dijkstra(std::string &a,std::string &b);
     void clearDistance();
     void clearVisit();
     int findMinDistance();
     void setData(std::ifstream &file);
+    int getID(std::string &name);
 };
 
 

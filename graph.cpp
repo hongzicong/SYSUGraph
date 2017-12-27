@@ -14,7 +14,9 @@ graph::graph() {
     }
 }
 
-bool graph::Dijkstra(int a, int b) {
+bool graph::Dijkstra(std::string &str_a, std::string &str_b) {
+    int a=getID(str_a);
+    int b=getID(str_b);
     clearDistance();
     distance[a]=0;
     isVisit[a]=true;
@@ -52,6 +54,9 @@ int graph::findMinDistance(){
     return index;
 }
 
+void graph::setData(std::ifstream &file){
+}
+
 void graph::clearDistance() {
     for(int i=0;i<MAX_VERTEX;++i){
         distance[i]=INT_MAX;
@@ -62,4 +67,12 @@ void graph::clearVisit(){
     for(int i=0;i<MAX_VERTEX;++i){
         isVisit[i]=false;
     }
+}
+
+int graph::getID(std::string &name) {
+    for(int i=0;i<MAX_VERTEX;++i){
+        if(name==vertex[i]){}
+        return i;
+    }
+    return -1;
 }
