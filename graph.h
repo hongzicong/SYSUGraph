@@ -9,6 +9,7 @@
 #include <fstream>
 #include <climits>
 #include <string>
+#include <queue>
 
 #define MAX_VERTEX 100
 
@@ -21,6 +22,8 @@ private:
     std::string vertex[MAX_VERTEX];
     std::string detail[MAX_VERTEX];
     int map[MAX_VERTEX][MAX_VERTEX];
+    std::queue<int> route;
+    void swap(int &a,int &b);
 public:
     graph();
     bool Dijkstra(std::string &a,std::string &b);
@@ -29,6 +32,9 @@ public:
     int findMinDistance();
     void setData(std::ifstream &file);
     int getID(std::string &name);
+    void getNode();
+    void getMap();
+    void printRoute();
 };
 
 
