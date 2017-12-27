@@ -1,4 +1,6 @@
 #include <iostream>
+#include <fstream>
+#include "graph.h"
 
 int main()
 {
@@ -18,11 +20,25 @@ int main()
         char choice;
         std::cin >> choice;
         choice = tolower(choice);
+        graph newgraph;
+        std::ifstream in("data");
+        newgraph.setData(in);
         switch (choice)
         {
             case 'm':
+                newgraph.getMap();
+                break;
             case 'n':
+                newgraph.getNode();
+                break;
             case 's':
+                std::string s1, s2;
+                std::cin >> s1 >> s2;
+                if (newgraph.Dijkstra(s1, s2));
+                else
+                {
+                    std::cout << "依据给出的信息，不存在可能的最短路径！" << std::endl;
+                }
                 break;
             case 'q':
                 quit = true;
@@ -31,7 +47,7 @@ int main()
                 std::cout << "Invalid Command!" << std::endl;
                 break;
         }
+        std::system("clear");
     }
-    std::system("clear");
     return 0;
 }
